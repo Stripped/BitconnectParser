@@ -12,6 +12,7 @@
     "cheerio": "^1.0.0-rc.2",
     "iconv-lite": "^0.4.19",
     "node-telegram-bot-api": "^0.29.0",
+    "ontime": "0.0.3",
     "request": "^2.83.0",
     "require": "^2.4.20"
   }
