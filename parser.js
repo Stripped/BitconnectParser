@@ -1,5 +1,9 @@
 var request = require('request');
 var cheerio = require('cheerio');
+var CoinMarketCap = require("node-coinmarketcap");
+var coinmarketcap = new CoinMarketCap();
+
+
 
 //Загружаем страницу
 request({
@@ -11,14 +15,9 @@ request({
         //Передаём страницу в cheerio
         var $ = cheerio.load(page);
         //Идём по DOM-дереву обычными CSS-селекторами
-        //img_src=$('#col-xs-4 col-sm-2 text-center p10').text();
         var rendering = $.html('.col-xs-4.col-sm-2.text-center.p10 strong');
         var bccource =  $.html('span.xs-fs-12 span');
-        console.log(bccource);
-        //var redertext = cheerio.text($('<div class="м" style="border:1px dashed #484848"></div>'))
-        //console.log(typeof(img_src));
-        //console.log(img_src+' ');
-        //console.log(rendering);
+        //console.log(bccource);
         var arrofroyal = rendering.split('g>').map(function(item, i, arr) {
             item = arr[i].match("\.\.\.\.%");
             if (item) {
@@ -39,20 +38,19 @@ request({
         });
 
         //console.log(arrofroyal);
-        console.log(bccarray);
+        //console.log(bccarray);
 
 
         module.exports.massiv = arrofroyal;
         module.exports.massivbcc = bccarray;
     });
+ topcoins = coinmarketcap.multi(coins =>
+  {
+    
+     coins.getTop(3); 
+     //console.log(coins.getTop(3));// Prints information about top 25 cryptocurrencies
+     
+  }
+);
 
-
-/*
-<span class="xs-fs-12">
- <b style="font-weight: 900;color: white">1</b>
- <i>BCC</i>
- <span style="color: white">= $298.2476</span>
-</span>
-
-
-*/
+console.log(topcoins);
