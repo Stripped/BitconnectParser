@@ -5,6 +5,7 @@ var coinmarketcap = new CoinMarketCap();
 
 
 
+
 //Загружаем страницу
 request({
         uri: 'https://bitconnect.co/learning-center/bitconnect-bitcoin-price-volatility-software',
@@ -44,10 +45,11 @@ request({
         module.exports.massiv = arrofroyal;
         module.exports.massivbcc = bccarray;
     });
- topcoins = coinmarketcap.multi(coins =>
+topcoins = 0;
+topcoins=coinmarketcap.multi(coins =>
   {
     
-     coins.getTop(3); 
+     console.log(typeof(coins.getTop(3))); 
      //console.log(coins.getTop(3));// Prints information about top 25 cryptocurrencies
      
   }
