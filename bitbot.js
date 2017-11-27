@@ -19,6 +19,18 @@ bot.onText(/\/help/, (msg, match) => {
 
 });
 
+bot.onText(/\/cryptocurse/, (msg, match) => {
+    // 'msg' is the received Message from Telegram
+    // 'match' is the result of executing the regexp above on the text content
+    // of the message
+
+    const chatId = msg.chat.id;
+    bot.sendMessage(chatId, 'Курс Биткоина: ' + (parser.massivbcc[0]).toString());
+    bot.sendMessage(chatId, 'Курс Битконнекта: ' + (parser.massivbcc[1]).toString());
+
+
+});
+
 bot.onText(/\/royalty/, (msg, match) => {
     // 'msg' is the received Message from Telegram
     // 'match' is the result of executing the regexp above on the text content
